@@ -1,0 +1,7 @@
+{% for nota in notas %}
+    {% if nota >= 7 %}
+        <h1>{{nota}}: APROBADO</h1>
+    {% else %}
+        <h1>{{nota}}:DESAPROBADO </h1>
+    {% endif %}
+{% endfor %}
