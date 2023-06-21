@@ -7,8 +7,7 @@ def create_article(request):
     new_article = Articles.objects.create(
         title="Bajo el peso",
         description="Esta bajisimo, desesperen o salgan a comprar mas!!!",
-        author="José Francisco de San Martín",
-    )
+        author="José Francisco de San Martín")
     context={
         "new_article":new_article
     }
