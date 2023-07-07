@@ -8,6 +8,13 @@ class Products(models.Model):
     creation_date=models.DateField(auto_now_add=True, null=True, blank=True)
     stock=models.IntegerField()
 
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name="Product"
+        verbose_name_plural="Products"
+
 class Category(models.Model):
     name=models.CharField(max_length=50)
     
