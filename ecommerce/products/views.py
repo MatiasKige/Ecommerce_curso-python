@@ -17,3 +17,9 @@ def list_product(request):
         "products":products
     }
     return render(request, "products/products_list.html",context=context)
+
+def primer_formulario(request):
+    print (request.method)
+    if request.method == "POST":
+        print (request.POST)
+    return render(request, "products/primer_formulario.html", context={})
