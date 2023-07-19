@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from products.models import Products
 from products.forms import Formulario_productos
@@ -37,6 +36,8 @@ def primer_formulario(request):
 
 def search_products(request):
     search = request.GET["search"]
-    products = Products.objects.filter(name=search)
-    print (products)
-    return HttpResponse(request.GET)
+    products = Products.objects.filter(name__icontains=search)
+    context = {
+        "products":products
+    }
+    return render(request, "products/search_product.html", context=context)

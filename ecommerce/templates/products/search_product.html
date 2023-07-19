@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+  Busqueda productos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for product in products %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://beermarket.com.ar/wp-content/uploads/2021/04/Coca-Cola-2.25L.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Precio: {{product.price}}</p>
+            <p class="card-text">Stock: {{product.stock}}</p>
+            <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+            </div>
+        </div>
+
+    {% endfor %}
+  
+{% endblock %}
