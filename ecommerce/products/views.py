@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from products.models import Products
 from products.forms import Formulario_productos
@@ -5,7 +6,6 @@ from products.forms import Formulario_productos
 def create_product(request):
     if request.method == "POST":
         form = Formulario_productos(request.POST)
-
         if form.is_valid():
             Products.objects.create(
                 name = form.cleaned_data["name"],
@@ -34,3 +34,9 @@ def primer_formulario(request):
     if request.method == "POST":
         print (request.POST)
     return render(request, "products/primer_formulario.html", context={})
+
+def search_products(request):
+    search = request.GET["search"]
+    products = Products.objects.filter(name=search)
+    print (products)
+    return HttpResponse(request.GET)
