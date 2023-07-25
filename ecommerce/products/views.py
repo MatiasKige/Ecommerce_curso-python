@@ -13,7 +13,6 @@ def create_product(request):
                 stock = form.cleaned_data["stock"]
             )
             return redirect(list_product)
-    
     elif request.method =="GET":
         form = Formulario_productos()
         context={
@@ -41,3 +40,13 @@ def search_products(request):
         "products":products
     }
     return render(request, "products/search_product.html", context=context)
+
+def delete_prudct(request,pk):
+    if request.method == "GET":
+        product = Products.objects.get(pk=pk)
+        context = {"product":product}
+        return render(request,"products/delete_product.html",context=context)
+    elif request.method == "POST":
+        product = Products.objects.get(pk=pk)
+        product.delete()
+        return redirect(list_product)
