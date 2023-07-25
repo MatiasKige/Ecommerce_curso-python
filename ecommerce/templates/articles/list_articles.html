@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+  Lista de articulos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for article in object_list %}
+
+    <h1>{{article.title}}</h1> 
+    <h1>{{article.description}}</h1> 
+    <a href="/articles/detail-article/{{article.id}}/" class="btn btn-danger">Detalle</a>
+
+
+{% endfor %}
+  
+{% endblock %}
