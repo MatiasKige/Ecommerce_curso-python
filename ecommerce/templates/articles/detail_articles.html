@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+  Detalles de articulos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+  <h1>{{object.title}}</h1> 
+  <h1>{{object.description}}</h1>
+  <h1>{{object.creation_date}}</h1> 
+  <h1>{{object.author}}</h1>
+
+{% endblock %}
