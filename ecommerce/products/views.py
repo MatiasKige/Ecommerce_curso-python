@@ -50,3 +50,26 @@ def delete_prudct(request,pk):
         product = Products.objects.get(pk=pk)
         product.delete()
         return redirect(list_product)
+    
+def update_product(request, pk):
+    if request.method == "POST":
+        form = Formulario_productos(request.POST)
+        if form.is_valid():
+            product = Products.objects.get(pk=pk)
+            product.name = form.cleaned_data["name"]
+            product.price = form.cleaned_data["price"]
+            product.description = form.cleaned_data["description"]
+            product.stock = form.cleaned_data["stock"]
+            product.save()
+            return redirect(list_product)
+
+    elif request.method == "GET":
+        product = Products.objects.get(pk=pk)
+        form = Formulario_productos(initial={
+                                                "name":product.name,
+                                                "price":product.price,
+                                                "description":product.description,
+                                                "stock":product.stock
+                                            })
+        context = {"form":form}
+        return render(request,"products/update_product.html",context=context)
