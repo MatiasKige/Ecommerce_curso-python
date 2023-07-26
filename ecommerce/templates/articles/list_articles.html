@@ -6,13 +6,13 @@
 
 {% block contenido_que_cambia %}
 
-{% for article in object_list %}
+  {% for article in object_list %}
 
-    <h1>{{article.title}}</h1> 
-    <h1>{{article.description}}</h1> 
-    <a href="/articles/detail-article/{{article.id}}/" class="btn btn-primary">Detalle</a>
+      <h1>{{article.title}}</h1> 
+      <h1>{{article.description}}</h1> 
+      <a href="/articles/detail-article/{{article.id}}/" class="btn btn-primary">Detalle</a>
 
 
-{% endfor %}
-  
+  {% endfor %}
+
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo%}
+  Eliminar articulo
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+    <p>Titulo del articulo: {{object.title}}</p>
+    <p>Descripcion del articulo: {{object.description}}</p>
+    <p>Autor del articulo: {{object.author}}</p>
+
+    <h3>Seguro que desea eliminar el articulo?</h3>
+
+    <form action="" method="POST">
+    {% csrf_token %}
+        <p><input type="submit" value="Borrar"></p>
+    </form>
+
+{% endblock %}

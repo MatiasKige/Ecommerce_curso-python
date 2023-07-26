@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from blog.models import Articles
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
 # Create your views here.
 
@@ -19,16 +19,10 @@ class Create_article(CreateView):
     fields = "__all__"
     success_url = "/articles/list-articles"
 
-
-
-
-
-
-
-
-
-
-
+class Delete_article(DeleteView):
+    model = Articles
+    template_name = "articles/delete_articles.html"
+    success_url = "/articles/list-articles/"
 
 
 
