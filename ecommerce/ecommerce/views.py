@@ -25,3 +25,6 @@ def template_notas(request):
         "notas":[7,9,5,3,8]
     }
     return render(request,"template_notas.html",context=context)
+
+def index(request):
+    return render(request,"index.html")
