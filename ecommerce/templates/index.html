@@ -7,6 +7,7 @@
 {% block contenido_que_cambia %}
 
     <h1>Hola este es mi index</h1>
+    <h2>Usuario: {{request.user}}</h2> 
 
     {% if message %}
         <h3>{{message}}</h3>
