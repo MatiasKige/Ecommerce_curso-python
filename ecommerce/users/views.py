@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
 def login_request(request):
@@ -20,3 +20,10 @@ def login_request(request):
     elif request.method == "GET":
         form = AuthenticationForm()
     return render(request,"users/login.html",{"form":form})
+
+def register(request):
+    if request.method == "POST":
+        pass
+    elif request.method == "GET":
+        form = UserCreationForm()
+        return render(request, "users/register.html", {"form":form})
